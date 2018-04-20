@@ -3,7 +3,7 @@
 
 import El
 from mpi4py import MPI
-from skylark.nla import svd as randsvd
+from skylark.nla import svd #as randsvd
 import numpy as np
 import sys
 
@@ -19,9 +19,9 @@ print S_el.Matrix().ToNumPy()[:k]
 
 print "Computing randSVD with k=20:"
 El.Demmel(A, 100)
-parms = randsvd.Params()
+parms = svd.Params()
 parms.num_iterations = 10
-(U, S, V) = randsvd.approximate_svd(A, k, parms)
+(U, S, V) = svd.approximate_svd(A, k, parms)
 print S.Matrix().ToNumPy()
 
 print np.linalg.norm((S.Matrix().ToNumPy() - S_el.Matrix().ToNumPy()[:k]), ord='fro')
