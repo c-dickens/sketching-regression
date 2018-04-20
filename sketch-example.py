@@ -3,7 +3,7 @@
 
 import El
 from mpi4py import MPI
-from skylark.nla import svd #as randsvd
+from skylark.nla import approximate_svd
 import numpy as np
 import sys
 
